@@ -1,10 +1,8 @@
 Vagrant.configure("2") do |config|
   nodes = {
     "load-balancer-1" => "192.168.1.10",
-    "load-balancer-2" => "192.168.1.11",
     "control-plane-1" => "192.168.1.50",
     "control-plane-2" => "192.168.1.51",
-    "control-plane-3" => "192.168.1.52",
     "worker-1" => "192.168.1.60",
     "worker-2" => "192.168.1.61"
   }
