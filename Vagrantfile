@@ -1,10 +1,12 @@
 Vagrant.configure("2") do |config|
   nodes = {
-    "control-plane-1" => "192.168.56.11",
-    "control-plane-2" => "192.168.56.12",
-    "control-plane-3" => "192.168.56.13",
-    "worker-1" => "192.168.56.21",
-    "worker-2" => "192.168.56.22"
+    "load-balancer-1" => "192.168.1.10",
+    "load-balancer-2" => "192.168.1.11",
+    "control-plane-1" => "192.168.1.50",
+    "control-plane-2" => "192.168.1.51",
+    "control-plane-3" => "192.168.1.52",
+    "worker-1" => "192.168.1.60",
+    "worker-2" => "192.168.1.61"
   }
 
   nodes.each do |hostname, ip|
@@ -16,7 +18,7 @@ Vagrant.configure("2") do |config|
       node.vm.provider "virtualbox" do |vb|
         vb.memory = "1024"
         vb.cpus = 1
-        disk_path = File.expand_path("disk-#{hostname}.vdi", Dir.pwd) # Ensure full path
+        disk_path = File.expand_path("disk-#{hostname}.vdi", Dir.pwd)
 
         # Check if disk already exists to prevent errors
         unless File.exist?(disk_path)
